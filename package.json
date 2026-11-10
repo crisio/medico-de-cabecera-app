@@ -1,1 +1,29 @@
-{"name":"medico-de-cabecera-app","version":"0.1.0","private":true,"type":"module","engines":{"node":">=22"},"scripts":{"dev":"node --watch server/index.js","start":"node server/index.js","build":"esbuild public/app.js --bundle --minify --outfile=public/app.bundle.js","lint":"eslint .","test":"node --test"},"dependencies":{"better-sqlite3":"^12.4.1","cookie-parser":"^1.4.7","express":"^5.1.0","helmet":"^8.1.0","multer":"^2.0.2"},"devDependencies":{"esbuild":"^0.25.12","eslint":"^9.39.1","supertest":"^7.1.4"}}
+{
+  "name": "medico-de-cabecera-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "node --watch server/index.js",
+    "start": "node server/index.js",
+    "build": "esbuild public/app.js --bundle --minify --outfile=public/app.bundle.js",
+    "lint": "eslint .",
+    "test": "node --test",
+    "demo": "npm run build && node server/demo.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.4.1",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "multer": "^2.0.2"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.12",
+    "eslint": "^9.39.1",
+    "supertest": "^7.1.4"
+  }
+}

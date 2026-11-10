@@ -75,3 +75,7 @@ Un plan empresarial se asigna a cada usuario de forma manual; no existe un porta
 ## Arquitectura
 
 Una aplicación Express sirve la API y la interfaz estática. SQLite guarda usuarios, sesiones, horarios, consultas, membresías, consentimientos y auditoría. Los datos clínicos se cifran con AES-256-GCM antes de persistir. El frontend usa JavaScript sencillo y CSS responsivo; `esbuild` genera el bundle. Los endpoints se documentan de forma legible en `server/index.js`. Se eligió una sola instancia y un solo volumen para reducir complejidad del primer piloto.
+
+## Demo local interactivo
+
+Ejecute `npm run demo` y abra `http://localhost:3001`. La franja superior permite entrar como paciente, médico o administrador con un clic. Hay una consulta de muestra y seis horarios. Todos los perfiles son ficticios; la verificación del médico es exclusivamente ilustrativa. El demo usa `data/demo`, se limita a la interfaz local y no arranca en producción. Las cuentas comparten la contraseña pública `Demo-Salud-2026!` y solo deben usarse en este demo local. No ingrese información real. La app normal no publica el endpoint de acceso de demostración.
