@@ -1,0 +1,15 @@
+import { openDb } from './db.js';
+import { randomBytes, randomUUID, scryptSync } from 'node:crypto';
+import { resolve } from 'node:path';
+const email=process.env.ADMIN_EMAIL?.trim().toLowerCase();
+const name=process.env.ADMIN_NAME?.trim()||'Administrador';
+const password=process.env.ADMIN_PASSWORD;
+if(!email||!password||password.length<16)throw Error('Set ADMIN_EMAIL and ADMIN_PASSWORD (at least 16 characters)');
+const db=openDb(resolve(process.env.DATA_DIR||'./data'));
+if(db.prepare('SELECT id FROM users WHERE email=?').get(email))throw Error('Account already exists');
+const salt=randomBytes(16).toString('hex');
+const hash=`${salt}:${scryptSync(password,salt,64).toString('hex')}`;
+const id=randomUUID();
+db.prepare('INSERT INTO users(id,email,name,password_hash,role,created_at) VALUES(?,?,?,?,?,?)').run(id,email,name,hash,'admin',new Date().toISOString());
+console.log('Admin account created:',email);
+db.close();
