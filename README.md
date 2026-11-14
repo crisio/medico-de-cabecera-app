@@ -79,3 +79,9 @@ Una aplicación Express sirve la API y la interfaz estática. SQLite guarda usua
 ## Demo local interactivo
 
 Ejecute `npm run demo` y abra `http://localhost:3001`. La franja superior permite entrar como paciente, médico o administrador con un clic. Hay una consulta de muestra y seis horarios. Todos los perfiles son ficticios; la verificación del médico es exclusivamente ilustrativa. El demo usa `data/demo`, se limita a la interfaz local y no arranca en producción. Las cuentas comparten la contraseña pública `Demo-Salud-2026!` y solo deben usarse en este demo local. No ingrese información real. La app normal no publica el endpoint de acceso de demostración.
+
+## Diseño y presentación
+
+La [carpeta de diseño](docs/design/README.md) reúne la captura de la interfaz y los conceptos editables de identidad. Los símbolos siguen pendientes de elección; no se presentan como marca final aprobada.
+
+![Panel del demo con datos ficticios](docs/design/demo.png)
